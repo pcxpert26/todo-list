@@ -10,7 +10,7 @@ function addTask(){
     let taskName = document.getElementById("task-name")
     let newTask = taskName.value
     taskArray.push(newTask)
-    console.log(taskArray)
+    taskName.value = ""
     displayTasks()
    }else {
         window.alert("Cannot add more than 10 items.")
