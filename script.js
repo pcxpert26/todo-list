@@ -11,35 +11,20 @@ function addTask(){
     let newTask = taskName.value
     taskArray.push(newTask)
     console.log(taskArray)
-    displayTask()
+    displayTasks()
    }else {
         window.alert("Cannot add more than 10 items.")
    }
 }
 
-function displayTask() {
-    let taskOne = document.getElementById("task-one")
-    let taskTwo = document.getElementById("task-two")
-    let taskThree = document.getElementById("task-three")
-    let taskFour = document.getElementById("task-four")
-    let taskFive = document.getElementById("task-five")
-    let taskSix = document.getElementById("task-six")
-    let taskSeven = document.getElementById("task-seven")
-    let taskEight = document.getElementById("task-eight")
-    let taskNine = document.getElementById("task-nine")
-    let taskTen = document.getElementById("task-ten")
-
-    taskOne.textContent = taskArray[0]
-    taskTwo.textContent = taskArray[1]
-    taskThree.textContent = taskArray[2]
-    taskFour.textContent = taskArray[3]
-    taskFive.textContent = taskArray[4]
-    taskSix.textContent = taskArray[5]
-    taskSeven.textContent = taskArray[6]
-    taskEight.textContent = taskArray[7]
-    taskNine.textContent = taskArray[8]
-    taskTen.textContent = taskArray[9]
+function displayTasks() {
+    // Clear existing list before entering loop
+    let taskList = document.getElementById("task-list")
+    taskList.innerHTML = ""
+    // Iterate over the taskArray and create list items
+    for (i=0; i < taskArray.length; i++){
+        let listItem = document.createElement("li")
+        listItem.textContent = taskArray[i]
+        taskList.appendChild(listItem)
+    }
 }
-
-
-
