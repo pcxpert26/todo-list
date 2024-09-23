@@ -22,9 +22,22 @@ function displayTasks() {
     let taskList = document.getElementById("task-list")
     taskList.innerHTML = ""
     // Iterate over the taskArray and create list items
-    for (i=0; i < taskArray.length; i++){
+    for ( let i=0; i < taskArray.length; i++){
+        // Create li for each task
         let listItem = document.createElement("li")
         listItem.textContent = taskArray[i]
+        // Create delete button for each task
+        let deleteButton = document.createElement("button")
+        deleteButton.textContent = "Delete"
+        deleteButton.onclick = function() {
+            removeTask(i); // Remove task when delete button is clicked
+        }
+        // Append delete button to list item, then add list item to the task list
+        listItem.appendChild(deleteButton)
         taskList.appendChild(listItem)
     }
+}
+function removeTask(index) {
+    taskArray.splice(index,1) // Remove the task at the specified index
+    displayTasks() // Refresh the task list after removal
 }
